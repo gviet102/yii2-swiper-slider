@@ -1,0 +1,21 @@
+{
+    "name": "bean/yii2-swiper-slider",
+    "description": "Yii2 swiper slider",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Bean",
+            "email": "gviet102@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "bean\\swiperslider\\": "src"
+        }
+    }
+}
