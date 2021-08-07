@@ -3,11 +3,11 @@
  * Created on Tue Oct 27 2020.
  *
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @copyright Copyright (c) 2010 - 2020 Sergey Coderius
- * @author Sergey Coderius <sunrise4fun@gmail.com>
+ * @copyright Copyright (c) 2010 - 2020 Sergey bean
+ * @author Sergey bean <sunrise4fun@gmail.com>
  *
- * @see https://github.com/coderius - My github. See more my packages here...
- * @see https://coderius.biz.ua/ - My dev. blog
+ * @see https://github.com/bean - My github. See more my packages here...
+ * @see https://bean.biz.ua/ - My dev. blog
  *
  * Contact email: sunrise4fun@gmail.com - Have suggestions, contact me |:=)
  */
@@ -36,7 +36,7 @@ class SwiperSlider extends Widget
     const BUTTON_NEXT = 'button-next';
     const SCROLLBAR = 'scrollbar';
 
-    const ASSET_DEFAULT = 'coderius\swiperslider\SwiperSliderAsset';
+    const ASSET_DEFAULT = 'bean\swiperslider\SwiperSliderAsset';
 
     /**
      * Cdn base url.
@@ -73,6 +73,7 @@ class SwiperSlider extends Widget
      * @var boolean
      */
     public $showPagination = true;
+    public $navigation = true;
 
     /**
      * If we need scrollbar.
@@ -101,6 +102,7 @@ class SwiperSlider extends Widget
      * @var boolean
      */
     public $assetFromCdn = false;
+    public $id =false;
 
     /**
      * Sliders.
@@ -116,7 +118,7 @@ class SwiperSlider extends Widget
      */
     protected $widgetId;
 
-    protected $slideClass = "coderius\swiperslider\SlideDefault";
+    protected $slideClass = "bean\swiperslider\SlideDefault";
 
     /**
      * {@inheritdoc}
@@ -128,13 +130,18 @@ class SwiperSlider extends Widget
         $this->defaultClientOptions = [
             'loop' => true,
             'pagination' => ['el' => static::getItemCssClass(static::PAGINATION)],
-            'navigation' => [
-                    'nextEl' => static::getItemCssClass(static::BUTTON_NEXT),
-                    'prevEl' => static::getItemCssClass(static::BUTTON_PREV),
-            ],
+            'navigation'=>false,
+            'navigation'=>[
+                'nextEl' => static::getItemCssClass(static::BUTTON_NEXT),
+                'prevEl' => static::getItemCssClass(static::BUTTON_PREV),
+            ]
         ];
 
-        $this->widgetId = $this->getId().'-'.static::WIDGET_NAME;
+        if($this->id) {
+            $this->widgetId = $this->id;
+        }else{
+            $this->widgetId = $this->getId() . '-' . static::WIDGET_NAME;
+        }
 
         if ($this->slides === null || empty($this->slides)) {
             throw new InvalidConfigException("The 'slides' option is required");
@@ -210,9 +217,11 @@ class SwiperSlider extends Widget
         //Pagination
         $pagination = $this->getHtmlElem(static::PAGINATION);
 
-        //Navigation buttons
-        $buttonPrev = $this->getHtmlElem(static::BUTTON_PREV);
-        $buttonNext = $this->getHtmlElem(static::BUTTON_NEXT);
+
+            //Navigation buttons
+            $buttonPrev = $this->getHtmlElem(static::BUTTON_PREV);
+            $buttonNext = $this->getHtmlElem(static::BUTTON_NEXT);
+
 
         //Scrollbar
         $scrollbar = $this->getHtmlElem(static::SCROLLBAR);
@@ -225,9 +234,10 @@ class SwiperSlider extends Widget
         if ($this->showPagination) {
             $content[] = $pagination;
         }
-
-        $content[] = $buttonPrev;
-        $content[] = $buttonNext;
+        if($this->navigation) {
+            $content[] = $buttonPrev;
+            $content[] = $buttonNext;
+        }
 
         // And if we need scrollbar
         if ($this->showScrollbar) {

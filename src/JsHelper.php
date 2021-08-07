@@ -3,16 +3,16 @@
  * Created on Tue Oct 27 2020.
  *
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @copyright Copyright (c) 2010 - 2020 Sergey Coderius
- * @author Sergey Coderius <sunrise4fun@gmail.com>
+ * @copyright Copyright (c) 2010 - 2020 Sergey bean
+ * @author Sergey bean <sunrise4fun@gmail.com>
  *
- * @see https://github.com/coderius - My github. See more my packages here...
- * @see https://coderius.biz.ua/ - My dev. blog
+ * @see https://github.com/bean - My github. See more my packages here...
+ * @see https://bean.biz.ua/ - My dev. blog
  *
  * Contact email: sunrise4fun@gmail.com - Have suggestions, contact me |:=)
  */
 
-namespace coderius\swiperslider;
+namespace bean\swiperslider;
 
 use Yii;
 

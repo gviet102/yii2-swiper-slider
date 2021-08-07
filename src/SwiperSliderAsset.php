@@ -2,13 +2,13 @@
 
 /**
  * @license BSD-3-Clause
- * @copyright Copyright (C) 2012-2020 Sergio coderius <coderius>
+ * @copyright Copyright (C) 2012-2020 Sergio bean <bean>
  * @contacts sunrise4fun@gmail.com - Have suggestions, contact me :)
  *
- * @see https://github.com/coderius - My github
+ * @see https://github.com/bean - My github
  */
 
-namespace coderius\swiperslider;
+namespace bean\swiperslider;
 
 use Yii;
 use yii\web\AssetBundle;
