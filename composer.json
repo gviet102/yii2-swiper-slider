@@ -17,5 +17,11 @@
         "psr-4": {
             "bean\\swiperslider\\": "src"
         }
-    }
+    },
+    "repositories":[
+        {
+            "type": "git",
+            "url": "https://path.to/your/repo"
+        }
+    ]
 }
